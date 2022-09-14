@@ -1,0 +1,863 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title>ECE4524: Artificial Intelligence and Engineering Applications, Fall 2021</title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2022.6">
+  <style type="text/css">
+    p.p4 {margin: 0.0px 0.0px 9.6px 0.0px; font: 12.0px Georgia; color: #000000; -webkit-text-stroke: #000000}
+    p.p7 {margin: 0.0px 0.0px 9.6px 0.0px; font: 10.8px Monaco; color: #940024; -webkit-text-stroke: #940024}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.8px Monaco; color: #000000; -webkit-text-stroke: #000000; background-color: #ededed}
+    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.8px Monaco; color: #000000; -webkit-text-stroke: #000000}
+    p.p11 {margin: 0.0px 0.0px 9.6px 0.0px; font: 12.0px Georgia; color: #000000; -webkit-text-stroke: #000000; background-color: #ffffff}
+    p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.0px Georgia; color: #939393; -webkit-text-stroke: #939393}
+    li.li5 {margin: 0.0px 0.0px 3.6px 0.0px; font: 12.0px Georgia; color: #000000; -webkit-text-stroke: #000000}
+    span.s1 {font-kerning: none; background-color: #ffffff}
+    span.s2 {background-color: #ffffff; -webkit-text-stroke: 0px #000000}
+    span.s3 {font-kerning: none}
+    span.s4 {font: 10.8px Monaco; font-kerning: none; color: #940024; background-color: #f2e3e9; -webkit-text-stroke: 0px #940024}
+    span.s5 {font: 12.0px Georgia; text-decoration: underline ; font-kerning: none; color: #111a54; -webkit-text-stroke: 0px #111a54}
+    span.s6 {font-kerning: none; background-color: #f2e3e9}
+    span.s7 {font: 12.0px Georgia; font-kerning: none; color: #000000; -webkit-text-stroke: 0px #000000}
+    span.s8 {font: 10.8px Monaco; color: #940024; background-color: #f2e3e9; -webkit-text-stroke: 0px #000000}
+    span.s9 {font: 10.8px Monaco; font-kerning: none; color: #940024; background-color: #f2e3e9}
+    span.s10 {font-kerning: none; color: #111a54; background-color: #ffffff; -webkit-text-stroke: 0px #111a54}
+    span.s11 {font: 12.0px Georgia; font-kerning: none; color: #000000; background-color: #ffffff; -webkit-text-stroke: 0px #000000}
+    span.s12 {font: 10.0px Georgia; text-decoration: underline ; font-kerning: none; color: #4b697c; -webkit-text-stroke: 0px #4b697c}
+    span.Apple-tab-span {white-space:pre}
+    ol.ol1 {list-style-type: decimal}
+    ul.ul1 {list-style-type: square}
+  </style>
+</head>
+<body>
+<h1 style="margin: 0.0px 0.0px 0.0px 0.0px; font: 19.8px Georgia; color: #263a8d; -webkit-text-stroke: #263a8d"><span class="s1"><b>ECE4524: Artificial Intelligence and Engineering Applications, Fall 2021</b></span></h1>
+<h2 style="margin: 0.0px 0.0px 4.5px 0.0px; font: 15.0px Georgia; color: #263a8d; -webkit-text-stroke: #263a8d"><span class="s1"><b>Project 0: Unix/Python/Autograder Tutorial</b></span></h2>
+<h3 style="margin: 0.0px 0.0px 4.0px 0.0px; font: 13.2px Georgia; color: #263a8d; -webkit-text-stroke: #263a8d"><span class="s1"><b>Introduction</b></span></h3>
+<p class="p4"><span class="s1">The projects for this class assume you use Python 3.6 or higher.</span></p>
+<p class="p4"><span class="s1">Project 0 will cover the following:</span></p>
+<ul class="ul1">
+  <li class="li5"><span class="s2"></span><span class="s1">A mini-UNIX tutorial (particularly important if you work on instructional machines),</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s2"></span><span class="s1">A mini-Python tutorial,</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s2"></span><span class="s1">Project grading: Every project's release includes its autograder for you to run yourself.</span><span class="s3"><br>
+</span></li>
+</ul>
+<p class="p4"><span class="s1"><b>Files to Edit and Submit:</b> You will fill in portions of </span><span class="s4">addition.py, buyLotsOfFruit.py, and shopSmart.py</span><span class="s1"> in <a href="file:///Users/dodoman/Downloads/p0/tutorial.zip"><span class="s5">tutorial.zip</span></a> during the assignment. You should submit these files with your code and comments. Please do not change the other files in this distribution or submit any of our original files other than these files.</span></p>
+<p class="p4"><span class="s1"><b>Evaluation:</b> Your code will be autograded for technical correctness. Please do not change the names of any provided functions or classes within the code, or you will wreak havoc on the autograder. However, the correctness of your implementation – not the autograder's judgements – will be the final judge of your score. If necessary, we will review and grade assignments individually to ensure that you receive due credit for your work.</span></p>
+<p class="p4"><span class="s1"><b>Academic Dishonesty:</b> We will be checking your code against other submissions in the class for logical redundancy. If you copy someone else's code and submit it with minor changes, we will know. These cheat detectors are quite hard to fool, so please don't try. We trust you all to submit your own work only; please don't let us down. If you do, we will pursue the strongest consequences available to us.</span></p>
+<p class="p4"><span class="s1"><b>Getting Help:</b> You are not alone! If you find yourself stuck on something, contact the course staff for help. Office hours, section, and the discussion forum are there for your support; please use them. If you can't make our office hours, let us know and we will schedule more. We want these projects to be rewarding and instructional, not frustrating and demoralizing. But, we don't know when or how to help unless you ask.</span></p>
+<p class="p4"><span class="s1"><b>Discussion:</b> Please be careful not to post spoilers.</span></p>
+<h3 style="margin: 0.0px 0.0px 4.0px 0.0px; font: 13.2px Georgia; color: #263a8d; -webkit-text-stroke: #263a8d"><span class="s1"><b>Unix Basics</b></span></h3>
+<p class="p4"><span class="s1">Here are basic commands to navigate UNIX and edit files.</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>File/Directory Manipulation</b></span></h4>
+<p class="p4"><span class="s1">When you open a terminal window, you're placed at a command prompt:</span></p>
+<p class="p7"><span class="s6">[ajit@ajitsmbp ~]</span></p>
+<p class="p4"><span class="s1">The prompt shows your username, the host you are logged onto, and your current location in the directory structure (your path). The </span><span class="s4">~</span><span class="s1"> (tilde) character is shorthand for your home directory. Note your prompt may look slightly different. To make a directory, use the </span><span class="s4">mkdir</span><span class="s1"> command. Use </span><span class="s4">cd</span><span class="s1"> to change to that directory:</span></p>
+<p class="p7"><span class="s6">[ajit@ajitsmbp ~] mkdir foo</span><span class="s7"><br>
+</span><span class="s6">[ajit@ajitsmbp ~] cd foo</span><span class="s7"><br>
+</span><span class="s6">[ajit@ajitsmbp ~/foo]</span><span class="s7"><br>
+</span></p>
+<p class="p4"><span class="s1">Use </span><span class="s4">ls</span><span class="s1"> to see a listing of the contents of a directory, and </span><span class="s4">touch</span><span class="s1"> to create an empty file:</span></p>
+<p class="p7"><span class="s6">[ajit@ajitsmbp ~/foo] ls</span><span class="s7"><br>
+</span><span class="s6">[ajit@ajitsmbp ~/foo] touch hello_world</span><span class="s7"><br>
+</span><span class="s6">[ajit@ajitsmbp ~/foo] ls</span><span class="s7"><br>
+</span><span class="s6">hello_world</span><span class="s7"><br>
+</span><span class="s6">[ajit@ajitsmbp ~/foo] cd ..</span><span class="s7"><br>
+</span><span class="s6">[ajit@ajitsmbp ~]</span><span class="s7"><br>
+</span></p>
+<p class="p4"><span class="s1">Download <a href="file:///Users/dodoman/Downloads/p0/python_basics.zip"><span class="s5">python_basics.zip</span></a> into your home directory (note: the zip file's name may be slightly different when you download it). Use </span><span class="s4">unzip</span><span class="s1"> to extract the contents of the zip file:</span></p>
+<p class="p8"><span class="s3">[ajit@ajitsmbp ~] ls *.zip</span></p>
+<p class="p8"><span class="s3">python_basics.zip</span></p>
+<p class="p8"><span class="s3">[ajit@ajitsmbp ~] unzip python_basics.zip</span></p>
+<p class="p8"><span class="s3">[ajit@ajitsmbp ~] cd python_basics</span></p>
+<p class="p8"><span class="s3">[ajit@ajitsmbp ~/python_basics] ls</span></p>
+<p class="p8"><span class="s3">foreach.py</span></p>
+<p class="p8"><span class="s3">helloWorld.py</span></p>
+<p class="p8"><span class="s3">listcomp.py</span></p>
+<p class="p8"><span class="s3">listcomp2.py</span></p>
+<p class="p8"><span class="s3">quickSort.py</span></p>
+<p class="p8"><span class="s3">shop.py</span></p>
+<p class="p8"><span class="s3">shopTest.py</span></p>
+<p class="p4"><span class="s1">Some other useful Unix commands:</span></p>
+<ul class="ul1">
+  <li class="li5"><span class="s8"></span><span class="s4">cp</span><span class="s1"> copies a file or files</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s8"></span><span class="s4">rm</span><span class="s1"> removes (deletes) a file</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s8"></span><span class="s4">mv</span><span class="s1"> moves a file (i.e., cut<i>paste instead of copy</i>paste)</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s8"></span><span class="s4">man</span><span class="s1"> displays documentation for a command</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s8"></span><span class="s4">pwd</span><span class="s1"> prints your current path)</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s8"></span><span class="s4">xterm</span><span class="s1"> opens a new terminal window</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s8"></span><span class="s4">firefox</span><span class="s1"> opens a web browser</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s2"></span><span class="s1">Press “Ctrl-c” to kill a running process</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s2"></span><span class="s1">Append </span><span class="s4">&amp;</span><span class="s1"> to a command to run it in the background</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s8"></span><span class="s4">fg</span><span class="s1"> brings a program running in the background to the foreground</span><span class="s3"><br>
+</span></li>
+</ul>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>The Emacs text editor</b></span></h4>
+<p class="p4"><span class="s1">Emacs is a customizable text editor which has some nice features specifically tailored for programmers. However, you can use any other text editor that you may prefer (such as <a href="https://atom.io/"><span class="s5">atom</span></a>, </span><span class="s4">vi</span><span class="s1">, </span><span class="s4">vim</span><span class="s1">, </span><span class="s4">pico</span><span class="s1">, or </span><span class="s4">joe</span><span class="s1">).</span></p>
+<p class="p4"><span class="s1">To run Emacs, type </span><span class="s4">emacs</span><span class="s1"> at a command prompt:</span></p>
+<p class="p7"><span class="s6">[ajit@ajitsmbp ~/python_basics] emacs helloWorld.py &amp;</span><span class="s7"><br>
+</span><span class="s6">[1] 3262</span></p>
+<p class="p4"><span class="s1">Here we gave the argument </span><span class="s4">helloWorld.py</span><span class="s1"> which will either open that file for editing if it exists, or create it otherwise. Emacs notices that this is a Python source file (because of the </span><span class="s4">.py</span><span class="s1"> ending) and enters Python-mode, which is supposed to help you write code. When editing this file you may notice some of that text becomes automatically colored: this is syntax highlighting to help you distinguish items such as keywords, variables, strings, and comments. Pressing Enter, Tab, or Backspace may cause the cursor to jump to weird locations: this is because Python is very picky about indentation, and Emacs is predicting the proper tabbing that you should use.</span></p>
+<p class="p4"><span class="s1">Some basic Emacs editing commands (</span><span class="s4">C-</span><span class="s1"> means “while holding the Ctrl-key”):</span></p>
+<ul class="ul1">
+  <li class="li5"><span class="s8"></span><span class="s4">C-x C-s</span><span class="s1"> Save the current file</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s8"></span><span class="s4">C-x C-f</span><span class="s1"> Open a file, or create a new file it if doesn't exist</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s8"></span><span class="s4">C-k</span><span class="s1"> Cut a line, add it to the clipboard</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s8"></span><span class="s4">C-y</span><span class="s1"> Paste the contents of the clipboard</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s8"></span><span class="s4">C-_</span><span class="s1"> Undo</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s8"></span><span class="s4">C-g</span><span class="s1"> Abort a half-entered command You can also copy and paste using just the mouse. Using the left button, select a region of text to copy. Click the middle button to paste.</span><span class="s3"><br>
+</span></li>
+</ul>
+<p class="p4"><span class="s1">There are two ways you can use Emacs to develop Python code. The most straightforward way is to use it just as a text editor: create and edit Python files in Emacs; then run Python to test the code somewhere else, like in a terminal window. Alternatively, you can run Python inside Emacs: see the options under “Python” in the menubar, or type </span><span class="s4">C-c !</span><span class="s1"> to start a Python interpreter in a split screen. (Use </span><span class="s4">C-x</span><span class="s1"> o to switch between the split screens, or just click if </span><span class="s4">C-x</span><span class="s1"> doesn't work).</span></p>
+<p class="p4"><span class="s1">If you want to spend some extra setup time becoming a power user, you can try an IDE like <a href="https://www.jetbrains.com/pycharm/"><span class="s5">Pycharm</span></a>.</span></p>
+<h3 style="margin: 0.0px 0.0px 4.0px 0.0px; font: 13.2px Georgia; color: #263a8d; -webkit-text-stroke: #263a8d"><span class="s1"><b>Python Basics</b></span></h3>
+<p class="p4"><span class="s1">Required Files You can download all of the files associated with the Python mini-tutorial as a zip archive: <a href="file:///Users/dodoman/Downloads/p0/python_basics.zip"><span class="s5">python_basics.zip</span></a>. If you did the unix tutorial in the previous tab, you've already downloaded and unzipped this file.</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Table of Contents</b></span></h4>
+<ul class="ul1">
+  <li class="li5"><span class="s2"></span><span class="s1">Invoking the Interpreter</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s2"></span><span class="s1">Operators</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s2"></span><span class="s1">Strings</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s2"></span><span class="s1">Dir and Help</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s2"></span><span class="s1">Built-in Data Structures</span></li>
+  <ul class="ul1">
+    <li class="li5"><span class="s2"></span><span class="s1">Lists</span><span class="s3"><br>
+</span></li>
+    <li class="li5"><span class="s2"></span><span class="s1">Tuples</span><span class="s3"><br>
+</span></li>
+    <li class="li5"><span class="s2"></span><span class="s1">Sets</span><span class="s3"><br>
+</span></li>
+    <li class="li5"><span class="s2"></span><span class="s1">Dictionaries</span><span class="s3"><br>
+</span></li>
+  </ul>
+  <li class="li5"><span class="s2"></span><span class="s1">Writing Scripts</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s2"></span><span class="s1">Indentation</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s2"></span><span class="s1">Tabs vs Spaces</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s2"></span><span class="s1">Writing Functions</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s2"></span><span class="s1">Object Basics</span></li>
+  <ul class="ul1">
+    <li class="li5"><span class="s2"></span><span class="s1">Defining Classes</span><span class="s3"><br>
+</span></li>
+    <li class="li5"><span class="s2"></span><span class="s1">Using Objects</span><span class="s3"><br>
+</span></li>
+    <li class="li5"><span class="s2"></span><span class="s1">Static vs Instance Variables</span><span class="s3"><br>
+</span></li>
+  </ul>
+  <li class="li5"><span class="s2"></span><span class="s1">Tips and Tricks</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s2"></span><span class="s1">Troubleshooting</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s2"></span><span class="s1">More References</span><span class="s3"><br>
+</span></li>
+</ul>
+<p class="p4"><span class="s1">The programming assignments in this course will be written in Python, an interpreted, object-oriented language that shares some features with both Java and Scheme. This tutorial will walk through the primary syntactic constructions in <a href="http://www.python.org/about/"><span class="s5">Python</span></a>, using short examples.</span></p>
+<p class="p4"><span class="s1">We encourage you to type all python shown in the tutorial onto your own machine. Make sure it responds the same way.</span></p>
+<p class="p4"><span class="s1">You may find the Troubleshooting section helpful if you run into problems. It contains a list of the frequent problems former students have encountered when following this tutorial.</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Invoking the Interpreter</b></span></h4>
+<p class="p4"><span class="s1">Python can be run in one of two modes. It can either be used interactively, via an interpeter, or it can be called from the command line to execute a script. We will first use the Python interpreter interactively.</span></p>
+<p class="p4"><span class="s1">You invoke the interpreter by entering </span><span class="s4">python</span><span class="s1"> at the Unix command prompt.</span></p>
+<p class="p8"><span class="s3">[ajit@ajitsmbp ~] python</span></p>
+<p class="p8"><span class="s3">Python 3.6.9 |Anaconda, Inc.| (default, Jul 30 2019, 13:42:17)</span></p>
+<p class="p8"><span class="s3">[GCC 4.2.1 Compatible Clang 4.0.1 (tags/RELEASE_401/final)] on darwin</span></p>
+<p class="p8"><span class="s3">Type "help", "copyright", "credits" or "license" for more information.</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt;</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Operators</b></span></h4>
+<p class="p4"><span class="s1">The Python interpreter can be used to evaluate expressions, for example simple arithmetic expressions. If you enter such expressions at the prompt (</span><span class="s4">&gt;&gt;&gt;</span><span class="s1">) they will be evaluated and the result will be returned on the next line.</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; 1 + 1</span></p>
+<p class="p8"><span class="s3">2</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; 2 * 3</span></p>
+<p class="p8"><span class="s3">6</span></p>
+<p class="p4"><span class="s1">Boolean operators also exist in Python to manipulate the primitive </span><span class="s4">True</span><span class="s1"> and </span><span class="s4">False</span><span class="s1"> values.</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; 1==0</span></p>
+<p class="p8"><span class="s3">False</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; not (1==0)</span></p>
+<p class="p8"><span class="s3">True</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; (2==2) and (2==3)</span></p>
+<p class="p8"><span class="s3">False</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; (2==2) or (2==3)</span></p>
+<p class="p8"><span class="s3">True</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Strings</b></span></h4>
+<p class="p4"><span class="s1">Like Java, Python has a built in string type. The </span><span class="s4">+</span><span class="s1"> operator is overloaded to do string concatenation on string values.</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; 'artificial' + "intelligence"</span></p>
+<p class="p8"><span class="s3">'artificialintelligence'</span></p>
+<p class="p4"><span class="s1">There are many built-in methods which allow you to manipulate strings.</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; 'artificial'.upper()</span></p>
+<p class="p8"><span class="s3">'ARTIFICIAL'</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; 'HELP'.lower()</span></p>
+<p class="p8"><span class="s3">'help'</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; len('Help')</span></p>
+<p class="p8"><span class="s3">4</span></p>
+<p class="p4"><span class="s1">Notice that we can use either single quotes </span><span class="s4">' '</span><span class="s1"> or double quotes </span><span class="s4">" "</span><span class="s1"> to surround string. This allows for easy nesting of strings.</span></p>
+<p class="p4"><span class="s1">We can also store expressions into variables.</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; s = 'hello world'</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; print(s)</span></p>
+<p class="p8"><span class="s3">hello world</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; s.upper()</span></p>
+<p class="p8"><span class="s3">'HELLO WORLD'</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; len(s.upper())</span></p>
+<p class="p8"><span class="s3">11</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; num = 8.0</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; num += 2.5</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; print(num)</span></p>
+<p class="p8"><span class="s3">10.5</span></p>
+<p class="p4"><span class="s1">In Python, you do not have declare variables before you assign to them.</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Exercise: Dir and Help</b></span></h4>
+<p class="p4"><span class="s1">Learn about the methods Python provides for strings. To see what methods Python provides for a datatype, use the dir and help commands:</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; s = 'abc'</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; dir(s)</span></p>
+<p class="p8"><span class="s3">['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__ge__', '__getattribute__',</span></p>
+<p class="p8"><span class="s3">'__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__','__le__', '__len__',</span></p>
+<p class="p8"><span class="s3">'__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__','__repr__', '__rmod__',</span></p>
+<p class="p8"><span class="s3">'__rmul__', '__setattr__', '__str__', 'capitalize', 'center', 'count', 'decode', 'encode', 'endswith',</span></p>
+<p class="p8"><span class="s3">'expandtabs', 'find', 'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle',</span></p>
+<p class="p8"><span class="s3">'isupper', 'join', 'ljust', 'lower', 'lstrip', 'replace', 'rfind','rindex', 'rjust', 'rsplit', 'rstrip',</span></p>
+<p class="p8"><span class="s3">'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; help(s.find)</span></p>
+<p class="p8"><span class="s3">Help on built-in function find:</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3">find(...)</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>S.find(sub [,start [,end]]) -&gt; int</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>Return the lowest index in S where substring sub is found,</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>such that sub is contained within s[start,end].<span class="Apple-converted-space">  </span>Optional</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>arguments start and end are interpreted as in slice notation.</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>Return -1 on failure.</span></p>
+<p class="p8"><span class="s3">&gt;&gt; s.find('b')</span></p>
+<p class="p8"><span class="s3">1</span></p>
+<p class="p4"><span class="s1">Press </span><span class="s9">q</span><span class="s1"> to back out of a help screen. Try out some of the string functions listed in </span><span class="s4">dir</span><span class="s1"> (ignore those with underscores ’_’ around the method name).</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Built-in Data Structures</b></span></h4>
+<p class="p4"><span class="s1">Python comes equipped with some useful built-in data structures, broadly similar to Java's collections package.</span></p>
+<h5 style="margin: 0.0px 0.0px 16.6px 0.0px; font: 10.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Lists</b></span></h5>
+<p class="p4"><span class="s1">Lists store a sequence of mutable items:</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; fruits = ['apple','orange','pear','banana']</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; fruits[0]</span></p>
+<p class="p8"><span class="s3">'apple'</span></p>
+<p class="p4"><span class="s1">We can use the </span><span class="s4">+</span><span class="s1"> operator to do list concatenation:</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; otherFruits = ['kiwi','strawberry']</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; fruits + otherFruits</span></p>
+<p class="p8"><span class="s3">['apple', 'orange', 'pear', 'banana', 'kiwi', 'strawberry']</span></p>
+<p class="p4"><span class="s1">Python also allows negative-indexing from the back of the list. For instance, </span><span class="s4">fruits[-1]</span><span class="s1"> will access the last element </span><span class="s4">'banana'</span><span class="s1">:</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; fruits[-2]</span></p>
+<p class="p8"><span class="s3">'pear'</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; fruits.pop()</span></p>
+<p class="p8"><span class="s3">'banana'</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; fruits</span></p>
+<p class="p8"><span class="s3">['apple', 'orange', 'pear']</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; fruits.append('grapefruit')</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; fruits</span></p>
+<p class="p8"><span class="s3">['apple', 'orange', 'pear', 'grapefruit']</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; fruits[-1] = 'pineapple'</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; fruits</span></p>
+<p class="p8"><span class="s3">['apple', 'orange', 'pear', 'pineapple']</span></p>
+<p class="p4"><span class="s1">We can also index multiple adjacent elements using the slice operator. For instance, </span><span class="s4">fruits[1:3]</span><span class="s1">, returns a list containing the elements at position 1 and 2. In general </span><span class="s4">fruits[start:stop]</span><span class="s1"> will get the elements in start, </span><span class="s4">start+1, ..., stop-1</span><span class="s1">. We can also do </span><span class="s4">fruits[start:]</span><span class="s1"> which returns all elements starting from the </span><span class="s4">start</span><span class="s1"> index. Also </span><span class="s4">fruits[:end]</span><span class="s1"> will return all elements before the element at position end:</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; fruits[0:2]</span></p>
+<p class="p8"><span class="s3">['apple', 'orange']</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; fruits[:3]</span></p>
+<p class="p8"><span class="s3">['apple', 'orange', 'pear']</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; fruits[2:]</span></p>
+<p class="p8"><span class="s3">['pear', 'pineapple']</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; len(fruits)</span></p>
+<p class="p8"><span class="s3">4</span></p>
+<p class="p4"><span class="s1">The items stored in lists can be any Python data type. So for instance we can have lists of lists:</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; lstOfLsts = [['a','b','c'],[1,2,3],['one','two','three']]</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; lstOfLsts[1][2]</span></p>
+<p class="p8"><span class="s3">3</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; lstOfLsts[0].pop()</span></p>
+<p class="p8"><span class="s3">'c'</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; lstOfLsts</span></p>
+<p class="p8"><span class="s3">[['a', 'b'],[1, 2, 3],['one', 'two', 'three']]</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Exercise: Lists</b></span></h4>
+<p class="p4"><span class="s1">Play with some of the list functions. You can find the methods you can call on an object via the </span><span class="s4">dir</span><span class="s1"> and get information about them via the </span><span class="s4">help</span><span class="s1"> command:</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; dir(list)</span></p>
+<p class="p8"><span class="s3">['__add__', '__class__', '__contains__', '__delattr__', '__delitem__',</span></p>
+<p class="p8"><span class="s3">'__delslice__', '__doc__', '__eq__', '__ge__', '__getattribute__',</span></p>
+<p class="p8"><span class="s3">'__getitem__', '__getslice__', '__gt__', '__hash__', '__iadd__', '__imul__',</span></p>
+<p class="p8"><span class="s3">'__init__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__',</span></p>
+<p class="p8"><span class="s3">'__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__',</span></p>
+<p class="p8"><span class="s3">'__rmul__', '__setattr__', '__setitem__', '__setslice__', '__str__',</span></p>
+<p class="p8"><span class="s3">'append', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse',</span></p>
+<p class="p8"><span class="s3">'sort']</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; help(list.reverse)</span></p>
+<p class="p8"><span class="s3">Help on built-in function reverse:</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3">reverse(...)</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>L.reverse() -- reverse *IN PLACE*</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; lst = ['a','b','c']</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; lst.reverse()</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; lst</span></p>
+<p class="p8"><span class="s3">['c','b','a']</span></p>
+<p class="p4"><span class="s1">Note: Ignore functions with underscores “_” around the names; these are private helper methods. Press </span><span class="s4">q</span><span class="s1"> to back out of a help screen.</span></p>
+<h5 style="margin: 0.0px 0.0px 16.6px 0.0px; font: 10.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Tuples</b></span></h5>
+<p class="p4"><span class="s1">A data structure similar to the list is the tuple, which is like a list except that it is immutable once it is created (i.e. you cannot change its content once created). Note that tuples are surrounded with parentheses while lists have square brackets.</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; pair = (3,5)</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; pair[0]</span></p>
+<p class="p8"><span class="s3">3</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; x,y = pair</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; x</span></p>
+<p class="p8"><span class="s3">3</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; y</span></p>
+<p class="p8"><span class="s3">5</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; pair[1] = 6</span></p>
+<p class="p8"><span class="s3">TypeError: object does not support item assignment</span></p>
+<p class="p4"><span class="s1">The attempt to modify an immutable structure raised an exception. Exceptions indicate errors: index out of bounds errors, type errors, and so on will all report exceptions in this way.</span></p>
+<h5 style="margin: 0.0px 0.0px 16.6px 0.0px; font: 10.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Sets</b></span></h5>
+<p class="p4"><span class="s1">A set is another data structure that serves as an unordered list with no duplicate items. Below, we show how to create a set, add things to the set, test if an item is in the set, and perform common set operations (difference, intersection, union):</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; shapes = ['circle','square','triangle','circle']</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; setOfShapes = set(shapes)</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; setOfShapes</span></p>
+<p class="p8"><span class="s3">set(['circle','square','triangle'])</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; setOfShapes.add('polygon')</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; setOfShapes</span></p>
+<p class="p8"><span class="s3">set(['circle','square','triangle','polygon'])</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; 'circle' in setOfShapes</span></p>
+<p class="p8"><span class="s3">True</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; 'rhombus' in setOfShapes</span></p>
+<p class="p8"><span class="s3">False</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; favoriteShapes = ['circle','triangle','hexagon']</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; setOfFavoriteShapes = set(favoriteShapes)</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; setOfShapes - setOfFavoriteShapes</span></p>
+<p class="p8"><span class="s3">set(['square','polyon'])</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; setOfShapes &amp; setOfFavoriteShapes</span></p>
+<p class="p8"><span class="s3">set(['circle','triangle'])</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; setOfShapes | setOfFavoriteShapes</span></p>
+<p class="p8"><span class="s3">set(['circle','square','triangle','polygon','hexagon'])</span></p>
+<p class="p4"><span class="s1"><b>Note that the objects in the set are unordered; you cannot assume that their traversal or print order will be the same across machines!</b></span></p>
+<h5 style="margin: 0.0px 0.0px 16.6px 0.0px; font: 10.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Dictionaries</b></span></h5>
+<p class="p4"><span class="s1">The last built-in data structure is the dictionary which stores a map from one type of object (the key) to another (the value). The key must be an immutable type (string, number, or tuple). The value can be any Python data type.</span></p>
+<p class="p4"><span class="s1">Note: In the example below, the printed order of the keys returned by Python could be different than shown below. The reason is that unlike lists which have a fixed)ordering, a dictionary is simply a hash table for which there is no fixed ordering of the keys (like HashMaps in Java). The order of the keys depends on how exactly the hashing algorithm maps keys to buckets, and will usually seem arbitrary. Your code should not rely on key ordering, and you should not be surprised if even a small modification to how your code uses a dictionary results in a new key ordering.</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; studentIds = {'knuth': 42.0, 'turing': 56.0, 'nash': 92.0 }</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; studentIds['turing']</span></p>
+<p class="p8"><span class="s3">56.0</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; studentIds['nash'] = 'ninety-two'</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; studentIds</span></p>
+<p class="p8"><span class="s3">{'knuth': 42.0, 'turing': 56.0, 'nash': 'ninety-two'}</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; del studentIds['knuth']</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; studentIds</span></p>
+<p class="p8"><span class="s3">{'turing': 56.0, 'nash': 'ninety-two'}</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; studentIds['knuth'] = [42.0,'forty-two']</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; studentIds</span></p>
+<p class="p8"><span class="s3">{'knuth': [42.0, 'forty-two'], 'turing': 56.0, 'nash': 'ninety-two'}</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; studentIds.keys()</span></p>
+<p class="p8"><span class="s3">['knuth', 'turing', 'nash']</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; studentIds.values()</span></p>
+<p class="p8"><span class="s3">[[42.0, 'forty-two'], 56.0, 'ninety-two']</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; studentIds.items()</span></p>
+<p class="p8"><span class="s3">[('knuth',[42.0, 'forty-two']), ('turing',56.0), ('nash','ninety-two')]</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; len(studentIds)</span></p>
+<p class="p8"><span class="s3">3</span></p>
+<p class="p11"><span class="s3">As with nested lists, you can also create dictionaries of dictionaries.</span></p>
+<p class="p4"><span class="s1">Use </span><span class="s4">exit()</span><span class="s1"> to exit from python.<span class="Apple-converted-space"> </span></span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Exercise: Dictionaries</b></span></h4>
+<p class="p4"><span class="s1">Use </span><span class="s4">dir</span><span class="s1"> and </span><span class="s4">help</span><span class="s1"> to learn about the functions you can call on dictionaries.</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Writing Scripts</b></span></h4>
+<p class="p4"><span class="s1">Now that you've got a handle on using Python interactively, let's write a simple Python script that demonstrates Python's </span><span class="s4">for</span><span class="s1"> loop. Open the file called </span><span class="s4">foreach.py</span><span class="s1"> and update it with the following code:</span></p>
+<p class="p8"><span class="s3"># This is what a comment looks like</span></p>
+<p class="p8"><span class="s3">fruits = ['apples','oranges','pears','bananas']</span></p>
+<p class="p8"><span class="s3">for fruit in fruits:</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>print(fruit + ' for sale')</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3">fruitPrices = {'apples': 2.00, 'oranges': 1.50, 'pears': 1.75}</span></p>
+<p class="p8"><span class="s3">for fruit, price in fruitPrices.items():</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>if price &lt; 2.00:</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>print('%s cost %f a pound' % (fruit, price))</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>else:</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>print(fruit + ' are too expensive!')</span></p>
+<p class="p4"><span class="s1">At the command line, use the following command in the directory containing foreach.py:</span></p>
+<p class="p8"><span class="s3">[ajit@ajitsmbp ~/tutorial] python foreach.py</span></p>
+<p class="p8"><span class="s3">apples for sale</span></p>
+<p class="p8"><span class="s3">oranges for sale</span></p>
+<p class="p8"><span class="s3">pears for sale</span></p>
+<p class="p8"><span class="s3">bananas for sale</span></p>
+<p class="p8"><span class="s3">oranges cost 1.500000 a pound</span></p>
+<p class="p8"><span class="s3">pears cost 1.750000 a pound</span></p>
+<p class="p8"><span class="s3">apples are too expensive!</span></p>
+<p class="p4"><span class="s1">Remember that the print statements listing the costs may be in a different order on your screen than in this tutorial; that's due to the fact that we're looping over)dictionary keys, which are unordered. To learn more about control structures (e.g., </span><span class="s4">if</span><span class="s1"> and </span><span class="s4">else</span><span class="s1">) in Python, check out the official <a href="http://docs.python.org/tut/"><span class="s5">Python tutorial section on this topic</span></a>.</span></p>
+<p class="p4"><span class="s1">If you like functional programming you might also like </span><span class="s4">map</span><span class="s1"> and </span><span class="s4">filter</span><span class="s1">:</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; map(lambda x: x * x, [1,2,3])</span></p>
+<p class="p8"><span class="s3">[1, 4, 9]</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; filter(lambda x: x &gt; 3, [1,2,3,4,5,4,3,2,1])</span></p>
+<p class="p8"><span class="s3">[4, 5, 4]</span></p>
+<p class="p4"><span class="s1">You can <a href="https://www.w3schools.com/python/python_lambda.asp"><span class="s5">learn more</span></a> about </span><span class="s4">lambda</span><span class="s1"> if you're interested.</span></p>
+<p class="p4"><span class="s1">The next snippet of code demonstrates Python's list comprehension construction:</span></p>
+<p class="p8"><span class="s3">nums = [1,2,3,4,5,6]</span></p>
+<p class="p8"><span class="s3">plusOneNums = [x+1 for x in nums]</span></p>
+<p class="p8"><span class="s3">oddNums = [x for x in nums if x % 2 == 1]</span></p>
+<p class="p8"><span class="s3">print(oddNums)</span></p>
+<p class="p8"><span class="s3">oddNumsPlusOne = [x+1 for x in nums if x % 2 == 1]</span></p>
+<p class="p8"><span class="s3">print(oddNumsPlusOne)</span></p>
+<p class="p4"><span class="s1">This code is in a file called </span><span class="s4">listcomp.py</span><span class="s1">, which you can run:</span></p>
+<p class="p8"><span class="s3">[ajit@ajitsmbp ~] python listcomp.py</span></p>
+<p class="p8"><span class="s3">[1,3,5]</span></p>
+<p class="p8"><span class="s3">[2,4,6]</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Exercise: List Comprehensions</b></span></h4>
+<p class="p4"><span class="s1">Write a list comprehension which, from a list, generates a lowercased version of each string that has length greater than five. You can find the solution in </span><span class="s4">listcomp2.py</span><span class="s1">.</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Beware of Indentation!</b></span></h4>
+<p class="p4"><span class="s1">Unlike many other languages, Python uses the indentation in the source code for interpretation. So for instance, for the following script:</span></p>
+<p class="p8"><span class="s3">if 0 == 1:</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>print('We are in a world of arithmetic pain')</span></p>
+<p class="p8"><span class="s3">print('Thank you for playing')</span></p>
+<p class="p4"><span class="s1">will output</span></p>
+<p class="p8"><span class="s3">Thank you for playing</span></p>
+<p class="p4"><span class="s1">But if we had written the script as</span></p>
+<p class="p8"><span class="s3">if 0 == 1:</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>print('We are in a world of arithmetic pain')</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>print('Thank you for playing')</span></p>
+<p class="p4"><span class="s1">there would be no output. The moral of the story: be careful how you indent! It's best to use four spaces for indentation – that's what the course code uses.</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Tabs vs Spaces</b></span></h4>
+<p class="p4"><span class="s1">Because Python uses indentation for code evaluation, it needs to keep track of the level of indentation across code blocks. This means that if your Python file switches from using tabs as indentation to spaces as indentation, the Python interpreter will not be able to resolve the ambiguity of the indentation level and throw an exception. Even though the code can be lined up visually in your text editor, Python “sees” a change in indentation and most likely will throw an exception (or rarely, produce unexpected behavior).</span></p>
+<p class="p4"><span class="s1">This most commonly happens when opening up a Python file that uses an indentation scheme that is opposite from what your text editor uses (aka, your text editor uses spaces and the file uses tabs). When you write new lines in a code block, there will be a mix of tabs and spaces, even though the whitespace is aligned. For a longer discussion on tabs vs spaces, see <a href="http://stackoverflow.com/questions/119562/tabs-versus-spaces-in-python-programming"><span class="s5">this</span></a> discussion on StackOverflow.</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Writing Functions</b></span></h4>
+<p class="p4"><span class="s1">As in Java, in Python you can define your own functions:</span></p>
+<p class="p8"><span class="s3">fruitPrices = {'apples':2.00, 'oranges': 1.50, 'pears': 1.75}</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3">def buyFruit(fruit, numPounds):</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>if fruit not in fruitPrices:</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>print("Sorry we don't have %s" % (fruit))</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>else:</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>cost = fruitPrices[fruit] * numPounds</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>print("That'll be %f please" % (cost))</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3"># Main Function</span></p>
+<p class="p8"><span class="s3">if __name__ == '__main__':</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>buyFruit('apples',2.4)</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>buyFruit('coconuts',2)</span></p>
+<p class="p4"><span class="s1">Rather than having a main function as in Java, the </span><span class="s4">__name__ == '__main__'</span><span class="s1"> check is used to delimit expressions which are executed when the file is called as a script from the command line. The code after the main check is thus the same sort of code you would put in a </span><span class="s4">main</span><span class="s1"> function in Java.</span></p>
+<p class="p4"><span class="s1">Save this script as fruit.py and run it:</span></p>
+<p class="p8"><span class="s3">[ajit@ajitsmbp ~] python fruit.py</span></p>
+<p class="p8"><span class="s3">That'll be 4.800000 please</span></p>
+<p class="p8"><span class="s3">Sorry we don't have coconuts</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Advanced Exercise</b></span></h4>
+<p class="p4"><span class="s1">Write a </span><span class="s4">quickSort</span><span class="s1"> function in Python using list comprehensions. Use the first element as the pivot. You can find the solution in </span><span class="s4">quickSort.py</span><span class="s1">.</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Object Basics</b></span></h4>
+<p class="p4"><span class="s1">Although this isn't a class in object-oriented programming, you'll have to use some objects in the programming projects, and so it's worth covering the basics of objects in Python. An object encapsulates data and provides functions for interacting with that data.</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Defining Classes</b></span></h4>
+<p class="p4"><span class="s1">Here's an example of defining a class named </span><span class="s4">FruitShop</span><span class="s1">:</span></p>
+<p class="p8"><span class="s3">class FruitShop:</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>def __init__(self, name, fruitPrices):</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">            </span>name: Name of the fruit shop</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">            </span>fruitPrices: Dictionary with keys as fruit</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">            </span>strings and prices for values e.g.</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">            </span>{'apples':2.00, 'oranges': 1.50, 'pears': 1.75}</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>self.fruitPrices = fruitPrices</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>self.name = name</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>print('Welcome to the %s fruit shop' % (name))</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>def getCostPerPound(self, fruit):</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">            </span>fruit: Fruit string</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>Returns cost of 'fruit', assuming 'fruit'</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>is in our inventory or None otherwise</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>if fruit not in self.fruitPrices:</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">            </span>print("Sorry we don't have %s" % (fruit))</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">            </span>return None</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>return self.fruitPrices[fruit]</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>def getPriceOfOrder(self, orderList):</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">            </span>orderList: List of (fruit, numPounds) tuples</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>Returns cost of orderList. If any of the fruit are</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>totalCost = 0.0</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>for fruit, numPounds in orderList:</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">            </span>costPerPound = self.getCostPerPound(fruit)</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">            </span>if costPerPound != None:</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">                </span>totalCost += numPounds * costPerPound</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>return totalCost</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>def getName(self):</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>return self.name</span></p>
+<p class="p4"><span class="s1">The </span><span class="s4">FruitShop</span><span class="s1"> class has some data, the name of the shop and the prices per pound of some fruit, and it provides functions, or methods, on this data. What advantage is there to wrapping this data in a class?</span></p>
+<ol class="ol1">
+  <li class="li5"><span class="s2"></span><span class="s1">Encapsulating the data prevents it from being altered or used inappropriately,</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s2"></span><span class="s1">The abstraction that objects provide make it easier to write general-purpose code.</span><span class="s3"><br>
+</span></li>
+</ol>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Using Objects</b></span></h4>
+<p class="p4"><span class="s1">So how do we make an object and use it? Make sure you have the </span><span class="s4">FruitShop</span><span class="s1"> implementation in </span><span class="s4">shop.py</span><span class="s1">. We then import the code from this file (making it accessible to other scripts) using </span><span class="s4">import shop</span><span class="s1">, since </span><span class="s4">shop.py</span><span class="s1"> is the name of the file. Then, we can create </span><span class="s4">FruitShop</span><span class="s1"> objects as follows:</span></p>
+<p class="p8"><span class="s3">import shop</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3">shopName = 'the Berkeley Bowl'</span></p>
+<p class="p8"><span class="s3">fruitPrices = {'apples': 1.00, 'oranges': 1.50, 'pears': 1.75}</span></p>
+<p class="p8"><span class="s3">berkeleyShop = shop.FruitShop(shopName, fruitPrices)</span></p>
+<p class="p8"><span class="s3">applePrice = berkeleyShop.getCostPerPound('apples')</span></p>
+<p class="p8"><span class="s3">print(applePrice)</span></p>
+<p class="p8"><span class="s3">print('Apples cost %.2f at %s.' % (applePrice, shopName))</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3">otherName = 'the Stanford Mall'</span></p>
+<p class="p8"><span class="s3">otherFruitPrices = {'kiwis':6.00, 'apples': 4.50, 'peaches': 8.75}</span></p>
+<p class="p8"><span class="s3">otherFruitShop = shop.FruitShop(otherName, otherFruitPrices)</span></p>
+<p class="p8"><span class="s3">otherPrice = otherFruitShop.getCostPerPound('apples')</span></p>
+<p class="p8"><span class="s3">print(otherPrice)</span></p>
+<p class="p8"><span class="s3">print('Apples cost %.2f at %s.' % (otherPrice, otherName))</span></p>
+<p class="p8"><span class="s3">print("My, that's expensive!")</span></p>
+<p class="p4"><span class="s1">This code is in </span><span class="s4">shopTest.py</span><span class="s1">; you can run it like this:</span></p>
+<p class="p8"><span class="s3">[ajit@ajitsmbp ~] python shopTest.py</span></p>
+<p class="p8"><span class="s3">Welcome to the Berkeley Bowl fruit shop</span></p>
+<p class="p8"><span class="s3">1.0</span></p>
+<p class="p8"><span class="s3">Apples cost 1.00 at the Berkeley Bowl.</span></p>
+<p class="p8"><span class="s3">Welcome to the Stanford Mall fruit shop</span></p>
+<p class="p8"><span class="s3">4.5</span></p>
+<p class="p8"><span class="s3">Apples cost 4.50 at the Stanford Mall.</span></p>
+<p class="p8"><span class="s3">My, that's expensive!</span></p>
+<p class="p4"><span class="s1">So what just happened? The </span><span class="s4">import shop</span><span class="s1"> statement told Python to load all of the functions and classes in </span><span class="s4">shop.py</span><span class="s1">. The line </span><span class="s4">berkeleyShop = shop.FruitShop(shopName, fruitPrices)</span><span class="s1"> constructs an instance of the FruitShop class defined in shop.py, by calling the </span><span class="s4">__init__</span><span class="s1"> function in that class. Note that we only passed two arguments in, while </span><span class="s4">__init__</span><span class="s1"> seems to take three arguments: </span><span class="s4">(self, name, fruitPrices)</span><span class="s1">. The reason for this is that all methods in a class have </span><span class="s4">self</span><span class="s1"> as the first argument. The </span><span class="s4">self</span><span class="s1"> variable's value is automatically set to the object itself; when calling a method, you only supply the remaining arguments. The </span><span class="s4">self</span><span class="s1"> variable contains all the data (</span><span class="s4">name</span><span class="s1"> and </span><span class="s4">fruitPrices</span><span class="s1">) for the current specific instance (similar to this in Java). The print statements use the substitution operator (described in the [)https:docs.python.org<i>2</i>library/stdtypes.html</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Static vs Instance Variables</b></span></h4>
+<p class="p4"><span class="s1">The following example illustrates how to use static and instance variables in Python.</span></p>
+<p class="p4"><span class="s1">Create the </span><span class="s4">person_class.py</span><span class="s1"> containing the following code:</span></p>
+<p class="p8"><span class="s3">class Person:</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>population = 0</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>def __init__(self, myAge):</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>self.age = myAge</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>Person.population += 1</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>def get_population(self):</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>return Person.population</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>def get_age(self):</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>return self.age</span></p>
+<p class="p4"><span class="s1">We first compile the script:</span></p>
+<p class="p8"><span class="s3">[ajit@ajitsmbp ~] python person_class.py</span></p>
+<p class="p4"><span class="s1">Now use the class as follows:</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; import person_class</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; p1 = person_class.Person(12)</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; p1.get_population()</span></p>
+<p class="p8"><span class="s3">1</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; p2 = person_class.Person(63)</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; p1.get_population()</span></p>
+<p class="p8"><span class="s3">2</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; p2.get_population()</span></p>
+<p class="p8"><span class="s3">2</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; p1.get_age()</span></p>
+<p class="p8"><span class="s3">12</span></p>
+<p class="p8"><span class="s3">&gt;&gt;&gt; p2.get_age()</span></p>
+<p class="p8"><span class="s3">63</span></p>
+<p class="p4"><span class="s1">In the code above, </span><span class="s4">age</span><span class="s1"> is an instance variable and </span><span class="s4">population</span><span class="s1"> is a static variable. population is shared by all instances of the </span><span class="s4">Person</span><span class="s1"> class whereas each instance has its own </span><span class="s4">age</span><span class="s1"> variable.</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>More Python Tips and Tricks</b></span></h4>
+<p class="p4"><span class="s1">This tutorial has briefly touched on some major aspects of Python that will be relevant to the course. Here are some more useful tidbits:</span></p>
+<ul class="ul1">
+  <li class="li5"><span class="s2"></span><span class="s1">Use </span><span class="s4">range</span><span class="s1"> to generate a sequence of integers, useful for generating traditional indexed </span><span class="s4">for</span><span class="s1"> loops:</span><span class="s3"><br>
+</span></li>
+</ul>
+<p class="p8"><span class="s3">for index in range(3):</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>print(lst[index])</span></p>
+<ul class="ul1">
+  <li class="li5"><span class="s2"></span><span class="s1">After importing a file, if you edit a source file, the changes will not be immediately propagated in the interpreter. For this, use the reload command: </span><span class="s3"><br>
+</span></li>
+</ul>
+<p class="p8"><span class="s3">&gt;&gt;&gt; reload(shop)</span></p>
+<h5 style="margin: 0.0px 0.0px 16.6px 0.0px; font: 10.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Troubleshooting</b></span></h5>
+<p class="p4"><span class="s1">These are some problems (and their solutions) that new Python learners commonly encounter.</span></p>
+<ul class="ul1">
+  <li class="li5"><span class="s2"><b></b></span><span class="s1"><b>Problem:</b> ImportError: No module named py</span><span class="s3"><br>
+</span><span class="s1"><b>Solution</b>: When using </span><span class="s4">import</span><span class="s1">, do not include the “.py” from the filename. For example, you should say: </span><span class="s4">import shop</span><span class="s1"> NOT: </span><span class="s4">import shop.py</span><span class="s3"><br>
+</span></li>
+</ul>
+<ul class="ul1">
+  <li class="li5"><span class="s2"><b></b></span><span class="s1"><b>Problem:</b> NameError: name 'MY VARIABLE’ is not defined Even after importing you may see this.</span><span class="s3"><br>
+</span><span class="s1"><b>Solution:</b> To access a member of a module, you have to type </span><span class="s4">MODULE NAME.MEMBER NAME,</span><span class="s1"> where </span><span class="s4">MODULE NAME</span><span class="s1"> is the name of the .py file, and MEMBER NAME is the name of the variable (or function) you are trying to access.</span><span class="s3"><br>
+</span></li>
+</ul>
+<ul class="ul1">
+  <li class="li5"><span class="s2"><b></b></span><span class="s1"><b>Problem:</b> TypeError: 'dict’ object is not callable</span><span class="s3"><br>
+</span><span class="s1">Solution: Dictionary looks up are done using square brackets: </span><span class="s10">and</span><span class="s1">. NOT parenthesis: ( and).</span><span class="s3"><br>
+</span></li>
+</ul>
+<ul class="ul1">
+  <li class="li5"><span class="s2"><b></b></span><span class="s1"><b>Problem:</b> ValueError: too many values to unpack</span><span class="s3"><br>
+</span><span class="s1"><b>Solution:</b> Make sure the number of variables you are assigning in a </span><span class="s4">for</span><span class="s1"> loop matches the number of elements in each item of the list. Similarly for working with tuples.</span><span class="s3"><br>
+</span><span class="s1">For example, if </span><span class="s4">pair</span><span class="s1"> is a tuple of two elements (e.g. </span><span class="s4">pair =('apple', 2.0))</span><span class="s1"> then the following code would cause the “too many values to unpack error”:</span><span class="s3"><br>
+</span></li>
+</ul>
+<p class="p7"><span class="s6">(a,b,c) = pair</span></p>
+<p class="p4"><span class="s1">Here is a problematic scenario involving a for loop:</span></p>
+<p class="p8"><span class="s3">pairList = [('apples', 2.00), ('oranges', 1.50), ('pears', 1.75)]</span></p>
+<p class="p8"><span class="s3">for fruit, price, color in pairList:</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>print('%s fruit costs %f and is the color %s' % (fruit, price, color))</span></p>
+<ul class="ul1">
+  <li class="li5"><span class="s2"><b></b></span><span class="s1"><b>Problem:</b> AttributeError: 'list’ object has no attribute 'length’ (or something similar)</span><span class="s3"><br>
+</span><span class="s1"><b>Solution:</b> Finding length of lists is done using </span><span class="s4">len(NAME OF LIST)</span><span class="s1">.</span><span class="s3"><br>
+</span></li>
+</ul>
+<ul class="ul1">
+  <li class="li5"><span class="s2"><b></b></span><span class="s1"><b>Problem:</b> Changes to a file are not taking effect.</span><span class="s3"><br>
+</span><span class="s1"><b>Solution:</b> Make sure you are saving all your files after any changes.</span><span class="s3"><br>
+</span><span class="s1">If you are editing a file in a window different from the one you are using to execute python, make sure you </span><span class="s4">reload(YOUR_MODULE)</span><span class="s1"> to guarantee your changes are being reflected. </span><span class="s4">reload</span><span class="s1"> works similarly to </span><span class="s4">import</span><span class="s1">.</span><span class="s3"><br>
+</span></li>
+</ul>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Georgia; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>More References</b></span></h4>
+<ul class="ul1">
+  <li class="li5"><span class="s2"></span><span class="s1">The place to go for more Python information: <a href="http://www.python.org/"><span class="s5">www.python.org</span></a></span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s2"></span><span class="s1">A good reference book: <a href="http://oreilly.com/catalog/9780596513986/"><span class="s5">Learning Python</span></a> (From the UCB campus, you can read the whole book online)</span><span class="s3"><br>
+</span></li>
+</ul>
+<h3 style="margin: 0.0px 0.0px 4.0px 0.0px; font: 13.2px Georgia; color: #263a8d; -webkit-text-stroke: #263a8d"><span class="s1"><b>Autograder</b></span></h3>
+<p class="p4"><span class="s1">To get you familiarized with the autograder, we will ask you to code, test, and submit solutions for three questions. You can download all of the files associated the autograder tutorial as a zip archive: <a href="file:///Users/dodoman/Downloads/p0/tutorial.zip"><span class="s5">tutorial.zip</span></a> (note this is <i>different</i> from the zip file used in the UNIX and Python mini-tutorials, <a href="file:///Users/dodoman/Downloads/p0/python_basics.zip"><span class="s5">python_basics.zip</span></a>). Unzip this file and examine its contents:</span></p>
+<p class="p8"><span class="s3">[ajit@ajitsmbp ~] unzip tutorial.zip</span></p>
+<p class="p8"><span class="s3">[ajit@ajitsmbp ~] cd tutorial</span></p>
+<p class="p8"><span class="s3">[ajit@ajitsmbp ~/tutorial] ls</span></p>
+<p class="p8"><span class="s3">addition.py</span></p>
+<p class="p8"><span class="s3">autograder.py</span></p>
+<p class="p8"><span class="s3">buyLotsOfFruit.py</span></p>
+<p class="p8"><span class="s3">grading.py</span></p>
+<p class="p8"><span class="s3">projectParams.py</span></p>
+<p class="p8"><span class="s3">shop.py</span></p>
+<p class="p8"><span class="s3">shopSmart.py</span></p>
+<p class="p8"><span class="s3">testClasses.py</span></p>
+<p class="p8"><span class="s3">testParser.py</span></p>
+<p class="p8"><span class="s3">test_cases</span></p>
+<p class="p8"><span class="s3">tutorialTestClasses.py</span></p>
+<p class="p4"><span class="s1">This contains a number of files you'll edit or run:</span></p>
+<ul class="ul1">
+  <li class="li5"><span class="s8"></span><span class="s4">addition.py</span><span class="s1">: source file for question 1</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s8"></span><span class="s4">buyLotsOfFruit.py</span><span class="s1">: source file for question 2</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s8"></span><span class="s4">shop.py</span><span class="s1">: source file for question 3</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s8"></span><span class="s4">shopSmart.py</span><span class="s1">: source file for question 3</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s8"></span><span class="s4">autograder.py</span><span class="s1">: autograding script (see below)</span><span class="s3"><br>
+</span></li>
+</ul>
+<p class="p4"><span class="s1">and others you can ignore:</span></p>
+<ul class="ul1">
+  <li class="li5"><span class="s8"></span><span class="s4">test_cases</span><span class="s1">: directory contains the test cases for each question</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s8"></span><span class="s4">grading.py</span><span class="s1">: autograder code</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s8"></span><span class="s4">testClasses.py</span><span class="s1">: autograder code</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s8"></span><span class="s4">tutorialTestClasses.py</span><span class="s1">: test classes for this particular project</span><span class="s3"><br>
+</span></li>
+  <li class="li5"><span class="s8"></span><span class="s4">projectParams.py</span><span class="s1">: project parameters</span><span class="s3"><br>
+</span></li>
+</ul>
+<p class="p4"><span class="s1">The command python </span><span class="s4">autograder.py</span><span class="s1"> grades your solution to all three problems. If we run it before editing any files we get a page or two of output:</span></p>
+<p class="p8"><span class="s3">[ajit@ajitsmbp ~/tutorial] python autograder.py</span></p>
+<p class="p8"><span class="s3">Starting on 1-21 at 23:39:51</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3">Question q1</span></p>
+<p class="p8"><span class="s3">===========</span></p>
+<p class="p8"><span class="s3">*** FAIL: test_cases/q1/addition1.test</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>add(a,b) must return the sum of a and b</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>student result: "0"</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>correct result: "2"</span></p>
+<p class="p8"><span class="s3">*** FAIL: test_cases/q1/addition2.test</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>add(a,b) must return the sum of a and b</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>student result: "0"</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>correct result: "5"</span></p>
+<p class="p8"><span class="s3">*** FAIL: test_cases/q1/addition3.test</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>add(a,b) must return the sum of a and b</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>student result: "0"</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>correct result: "7.9"</span></p>
+<p class="p8"><span class="s3">*** Tests failed.</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3">### Question q1: 0/1 ###</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3">Question q2</span></p>
+<p class="p8"><span class="s3">===========</span></p>
+<p class="p8"><span class="s3">*** FAIL: test_cases/q2/food_price1.test</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>buyLotsOfFruit must compute the correct cost of the order</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>student result: "0.0"</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>correct result: "12.25"</span></p>
+<p class="p8"><span class="s3">*** FAIL: test_cases/q2/food_price2.test</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>buyLotsOfFruit must compute the correct cost of the order</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>student result: "0.0"</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>correct result: "14.75"</span></p>
+<p class="p8"><span class="s3">*** FAIL: test_cases/q2/food_price3.test</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>buyLotsOfFruit must compute the correct cost of the order</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>student result: "0.0"</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>correct result: "6.4375"</span></p>
+<p class="p8"><span class="s3">*** Tests failed.</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3">### Question q2: 0/1 ###</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3">Question q3</span></p>
+<p class="p8"><span class="s3">===========</span></p>
+<p class="p8"><span class="s3">Welcome to shop1 fruit shop</span></p>
+<p class="p8"><span class="s3">Welcome to shop2 fruit shop</span></p>
+<p class="p8"><span class="s3">*** FAIL: test_cases/q3/select_shop1.test</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>shopSmart(order, shops) must select the cheapest shop</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>student result: "None"</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>correct result: "&lt;FruitShop: shop1&gt;"</span></p>
+<p class="p8"><span class="s3">Welcome to shop1 fruit shop</span></p>
+<p class="p8"><span class="s3">Welcome to shop2 fruit shop</span></p>
+<p class="p8"><span class="s3">*** FAIL: test_cases/q3/select_shop2.test</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>shopSmart(order, shops) must select the cheapest shop</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>student result: "None"</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>correct result: "&lt;FruitShop: shop2&gt;"</span></p>
+<p class="p8"><span class="s3">Welcome to shop1 fruit shop</span></p>
+<p class="p8"><span class="s3">Welcome to shop2 fruit shop</span></p>
+<p class="p8"><span class="s3">Welcome to shop3 fruit shop</span></p>
+<p class="p8"><span class="s3">*** FAIL: test_cases/q3/select_shop3.test</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>shopSmart(order, shops) must select the cheapest shop</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>student result: "None"</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>correct result: "&lt;FruitShop: shop3&gt;"</span></p>
+<p class="p8"><span class="s3">*** Tests failed.</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3">### Question q3: 0/1 ###</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3">Finished at 23:39:51</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3">Provisional grades</span></p>
+<p class="p8"><span class="s3">==================</span></p>
+<p class="p8"><span class="s3">Question q1: 0/1</span></p>
+<p class="p8"><span class="s3">Question q2: 0/1</span></p>
+<p class="p8"><span class="s3">Question q3: 0/1</span></p>
+<p class="p8"><span class="s3">------------------</span></p>
+<p class="p8"><span class="s3">Total: 0/3</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3">Your grades are NOT yet registered.<span class="Apple-converted-space">  </span>To register your grades, make sure</span></p>
+<p class="p8"><span class="s3">to follow your instructor's guidelines to receive credit on your project.</span></p>
+<p class="p4"><span class="s1">For each of the three questions, this shows the results of that question's tests, the questions grade, and a final summary at the end. Because you haven't yet solved the questions, all the tests fail. As you solve each question you may find some tests pass while other fail. When all tests pass for a question, you get full marks.</span></p>
+<p class="p4"><span class="s1">Looking at the results for question 1, you can see that it has failed three tests with the error message “add(a,b) must return the sum of a and b”. The answer your code gives is always 0, but the correct answer is different. We'll fix that in the next tab.</span></p>
+<h2 style="margin: 0.0px 0.0px 4.5px 0.0px; font: 15.0px Georgia; color: #263a8d; -webkit-text-stroke: #263a8d"><span class="s1"><b>Question 1: Addition</b></span></h2>
+<p class="p4"><span class="s1">Open </span><span class="s4">addition.py</span><span class="s1"> and look at the definition of </span><span class="s4">add</span><span class="s1">:</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>def add(a, b):</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>"Return the sum of a and b"</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>"*** YOUR CODE HERE ***"</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>return 0</span></p>
+<p class="p4"><span class="s1">The tests called this with </span><span class="s4">a</span><span class="s1"> and </span><span class="s4">b</span><span class="s1"> set to different values, but the code always returned zero. Modify this definition to read:</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">    </span>def add(a, b):</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>"Return the sum of a and b"</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>print("Passed a=%s and b=%s, returning a+b=%s" % (a,b,a+b))</span></p>
+<p class="p8"><span class="s3"><span class="Apple-converted-space">        </span>return a+b</span></p>
+<p class="p4"><span class="s1">Now rerun the autograder (omitting the results for questions 2 and 3):</span></p>
+<p class="p8"><span class="s3">[ajit@ajitsmbp ~/tutorial] python autograder.py -q q1</span></p>
+<p class="p8"><span class="s3">Starting on 1-21 at 23:52:05</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3">Question q1</span></p>
+<p class="p8"><span class="s3">===========</span></p>
+<p class="p8"><span class="s3">Passed a=1 and b=1, returning a+b=2</span></p>
+<p class="p8"><span class="s3">*** PASS: test_cases/q1/addition1.test</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>add(a,b) returns the sum of a and b</span></p>
+<p class="p8"><span class="s3">Passed a=2 and b=3, returning a+b=5</span></p>
+<p class="p8"><span class="s3">*** PASS: test_cases/q1/addition2.test</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>add(a,b) returns the sum of a and b</span></p>
+<p class="p8"><span class="s3">Passed a=10 and b=-2.1, returning a+b=7.9</span></p>
+<p class="p8"><span class="s3">*** PASS: test_cases/q1/addition3.test</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>add(a,b) returns the sum of a and b</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3">### Question q1: 1/1 ###</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3">Finished at 23:41:01</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3">Provisional grades</span></p>
+<p class="p8"><span class="s3">==================</span></p>
+<p class="p8"><span class="s3">Question q1: 1/1</span></p>
+<p class="p8"><span class="s3">Question q2: 0/1</span></p>
+<p class="p8"><span class="s3">Question q3: 0/1</span></p>
+<p class="p8"><span class="s3">------------------</span></p>
+<p class="p8"><span class="s3">Total: 1/3</span></p>
+<p class="p4"><span class="s1">You now pass all tests, getting full marks for question 1. Notice the new lines “Passed a=…” which appear before “* PASS: …”. These are produced by the print statement in </span><span class="s4">add</span><span class="s1">. You can use print statements like that to output information useful for debugging. You can also run the autograder with the option </span><span class="s4">--mute</span><span class="s1"> to temporarily hide such lines, as follows:</span></p>
+<p class="p8"><span class="s3">[ajit@ajitsmbp ~/tutorial] python autograder.py -q q1 --mute</span></p>
+<p class="p8"><span class="s3">Starting on 1-22 at 14:15:33</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3">Question q1</span></p>
+<p class="p8"><span class="s3">===========</span></p>
+<p class="p8"><span class="s3">*** PASS: test_cases/q1/addition1.test</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>add(a,b) returns the sum of a and b</span></p>
+<p class="p8"><span class="s3">*** PASS: test_cases/q1/addition2.test</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>add(a,b) returns the sum of a and b</span></p>
+<p class="p8"><span class="s3">*** PASS: test_cases/q1/addition3.test</span></p>
+<p class="p8"><span class="s3">*** <span class="Apple-tab-span">	</span>add(a,b) returns the sum of a and b</span></p>
+<p class="p9"><span class="s3"><br>
+</span></p>
+<p class="p8"><span class="s3">### Question q1: 1/1 ###</span></p>
+<h2 style="margin: 0.0px 0.0px 4.5px 0.0px; font: 15.0px Georgia; color: #263a8d; -webkit-text-stroke: #263a8d"><span class="s1"><b>Question 2: buyLotsOfFruit function</b></span></h2>
+<p class="p4"><span class="s1">Add a </span><span class="s4">buyLotsOfFruit(orderList)</span><span class="s1"> function to </span><span class="s4">buyLotsOfFruit.py</span><span class="s1"> which takes a list of </span><span class="s4">(fruit,pound)</span><span class="s1"> tuples and returns the cost of your list. If there is some fruit in the list which doesn't appear in </span><span class="s4">fruitPrices</span><span class="s1"> it should print an error message and return </span><span class="s4">None</span><span class="s1">. Please do not change the </span><span class="s4">fruitPrices</span><span class="s1"> variable.)</span></p>
+<p class="p4"><span class="s1">Run python autograder.py until question 2 passes all tests and you get full marks. Each test will confirm that buyLotsOfFruit(orderList) returns the correct answer given various possible inputs. For example, test_cases<i>q2</i>food_price1.test tests whether:</span></p>
+<p class="p4"><span class="s1">Cost of [('apples’, 2.0), ('pears’, 3.0), ('limes’, 4.0)] is 12.25</span></p>
+<h2 style="margin: 0.0px 0.0px 4.5px 0.0px; font: 15.0px Georgia; color: #263a8d; -webkit-text-stroke: #263a8d"><span class="s1"><b>Question 3: shopSmart function</b></span></h2>
+<p class="p4"><span class="s1">Fill in the function </span><span class="s4">shopSmart(orders,shops)</span><span class="s1"> in </span><span class="s4">shopSmart.py</span><span class="s1">, which takes an orderList (like the kind passed in to </span><span class="s4">FruitShop.getPriceOfOrder)</span><span class="s1"> and a list of </span><span class="s4">FruitShop</span><span class="s1"> and returns the </span><span class="s4">FruitShop</span><span class="s1"> where your order costs the least amount in total. Don't change the file name or variable names, please. Note that we will provide the </span><span class="s4">shop.py</span><span class="s1"> implementation as a “support” file, so you don't need to submit yours.</span></p>
+<p class="p4"><span class="s1">Run </span><span class="s4">python autograder.py</span><span class="s1"> until question 3 passes all tests and you get full marks. Each test will confirm that </span><span class="s4">shopSmart(orders,shops)</span><span class="s1"> returns the correct answer given various possible inputs. For example, with the following variable definitions:</span></p>
+<p class="p8"><span class="s3">orders1 = [('apples',1.0), ('oranges',3.0)]</span></p>
+<p class="p8"><span class="s3">orders2 = [('apples',3.0)]</span></p>
+<p class="p8"><span class="s3">dir1 = {'apples': 2.0, 'oranges':1.0}</span></p>
+<p class="p8"><span class="s3">shop1 =<span class="Apple-converted-space">  </span>shop.FruitShop('shop1',dir1)</span></p>
+<p class="p8"><span class="s3">dir2 = {'apples': 1.0, 'oranges': 5.0}</span></p>
+<p class="p8"><span class="s3">shop2 = shop.FruitShop('shop2',dir2)</span></p>
+<p class="p8"><span class="s3">shops = [shop1, shop2]</span></p>
+<p class="p7"><span class="s6">test_cases/q3/select_shop1.test</span><span class="s11"> tests whether:</span></p>
+<p class="p7"><span class="s6">shopSmart.shopSmart(orders1, shops) == shop1</span></p>
+<p class="p7"><span class="s11">and </span><span class="s6">test_cases/q3/select_shop2.test</span><span class="s11"> tests whether:</span></p>
+<p class="p7"><span class="s6">shopSmart.shopSmart(orders2, shops) == shop2</span></p>
+<h2 style="margin: 0.0px 0.0px 4.5px 0.0px; font: 15.0px Georgia; color: #263a8d; -webkit-text-stroke: #263a8d"><span class="s1"><b>Submission</b></span></h2>
+<p class="p4"><span class="s1">You're not done yet! Follow the submission instructions on Canvas to receive credit on your project!</span></p>
+<p class="p4"><span class="s3"><br>
+<br>
+</span><span class="s1"><i>Note: this page is a slightly modified version of the Berkeley CS188 Pacman homework assignments used for Virginia Tech's ECE4524. If you are looking for the original version, which the team at Berkeley do a great job keeping up to date, see </i><a href="http://ai.berkeley.edu/project_overview.html"><span class="s5"><i>http://ai.berkeley.edu/project_overview.html</i></span></a></span></p>
+<p class="p12"><span class="s1">Page generated 2021-08-24 21:35:50 EDT, by <a href="http://jemdoc.jaboc.net/"><span class="s12">jemdoc</span></a>.<span class="Apple-converted-space"> </span></span></p>
+</body>
+</html>

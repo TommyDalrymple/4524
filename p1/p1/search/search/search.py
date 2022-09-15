@@ -135,19 +135,20 @@ def uniformCostSearch(problem):
     fringe = PriorityQueue()
     prev_traveled = set()
 
-    fringe.push((problem.getStartState(), []), 0)
+    fringe.push((problem.getStartState(), [], 0), 0)
 
     while 1:
         if fringe.isEmpty():
             return path
-        state, path = fringe.pop()
+        state, path, total_cost = fringe.pop()
         if problem.isGoalState(state):
             return path
         if state not in prev_traveled:
             for child, dir, cost in problem.getSuccessors(state):
                 child_path = path.copy()
                 child_path.append(dir)
-                fringe.push((child, child_path), cost)
+                child_cost = total_cost + cost
+                fringe.push((child, child_path, child_cost), child_cost)
             prev_traveled.add(state)
 
 def nullHeuristic(state, problem=None):
@@ -164,19 +165,20 @@ def aStarSearch(problem, heuristic=nullHeuristic):
     fringe = PriorityQueueWithFunction(heuristic)
     prev_traveled = set()
 
-    fringe.push((problem.getStartState(), []), problem)
+    fringe.push((problem.getStartState(), [], 0), problem)
 
     while 1:
         if fringe.isEmpty():
             return path
-        state, path = fringe.pop()
+        state, path, total_cost = fringe.pop()
         if problem.isGoalState(state):
             return path
         if state not in prev_traveled:
             for child, dir, cost in problem.getSuccessors(state):
                 child_path = path.copy()
                 child_path.append(dir)
-                fringe.push((child, child_path), problem)
+                child_cost = total_cost + cost
+                fringe.push((child, child_path, child_cost), problem)
             prev_traveled.add(state)
 
 
